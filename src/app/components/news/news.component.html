@@ -1,2 +1,83 @@
-<p>我是一个新闻组件</p>
-<app-header></app-header>
+<h2>引入图片</h2>
+<img src="assets/image/0.jpg" alt="收藏" class="width"/>
+<img [src]="path" alt="百度" class="width"/>
+
+<div *ngIf="flag" class="width">
+        <img src="assets/image/0.jpg" alt="路飞1" class="width"/>
+</div>
+<div *ngIf="!flag" >
+        <img src="assets/image/1.jpg" alt="路飞2" class="width"/>
+</div>
+<ul *ngFor="let item of cars">
+        <h2> {{item.cate}}</h2>
+        <ol>
+            <li *ngFor="let car of item.list;let i=index">
+                <span *ngIf="i==1" class="red">{{car.name}}--{{car.price}}</span>
+                <span *ngIf="i!=1" >{{car.name}}--{{car.price}}</span>
+            </li>
+        </ol>
+</ul>
+<!--switch指令-->
+<span [ngSwitch]="payStatus">
+<p *ngSwitchCase="1">
+    未支付
+</p>
+<p *ngSwitchCase="2">
+        已支付
+</p>
+<p *ngSwitchDefault>
+        已发货
+</p>
+</span>
+
+<span [ngClass]="{'red': true}">
+    功不唐捐
+</span>
+<h2>switch实现</h2>
+<ul>
+   <li *ngFor="let item of news;let i=index">
+       <span [ngSwitch]="i">
+       <p *ngSwitchCase="0" >
+            <span class="red">{{item.name}}</span>
+       </p>
+       <p *ngSwitchCase="1">
+            <span class="green">{{item.name}}</span>
+       </p>
+       <p *ngSwitchDefault> 
+            <span class="orange">{{item.name}}</span>
+       </p>
+       </span>
+    
+    </li> 
+</ul>
+<h2>ngClass实现</h2>
+<ul>
+        <li *ngFor="let item of news;let i=index" [ngClass]="{'red': i==0,'green':i==1,'orange':i==2}">
+                 <span>{{item.name}}</span>
+         </li> 
+ </ul>
+ <p style="color:red">我是一个P1</p>
+ <p [ngStyle]="{'color': red}">我是一个P2</p>
+ <p [ngStyle]="{'color':'red'}">我是一个P3</p>
+<p [ngStyle]="{'color':attr}">我是一个P4</p>
+
+<h2>管道</h2>
+<p>{{now | date:'yyyy-MM-dd HH:mm:ss'}}</p>
+<p>{{name | lowercase}}</p>
+
+<h2>方法</h2>
+<p>{{title}}</p>
+<button (click)="run()">执行</button>
+<br>
+<button (click)="getData()">获取数据</button>
+<br>
+<button (click)="setData()">设置数据</button>
+<br>
+<button (click)="getEvent($event)">设置数据属性</button>
+
+<input type="text" (keyup) = "keyUp($event)"/>
+<h2>双向数据绑定</h2>
+<input type="text" [(ngModel)]='keywords'>
+{{keywords}}
+<button (click)="exchenge">修改数值</button>
+<button (click)="get">获取数值</button>
