@@ -7,13 +7,15 @@ import { NewsComponent } from './components/news/news.component';
 import { HeaderComponent } from './components/header/header.component';
 import { HomeComponent } from './components/home/home.component';
 import {FormsModule} from '@angular/forms';
+import { FromComponent } from './components/from/from.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NewsComponent,
     HeaderComponent,
-    HomeComponent
+    HomeComponent,
+    FromComponent
   ],
   imports: [
     BrowserModule,

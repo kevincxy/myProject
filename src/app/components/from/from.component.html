@@ -1,0 +1,9 @@
+<h2>人员登记系统</h2>
+
+<ul>
+    <li>姓名：<input type="text" name="username" id="username" [(ngModel)]="peopleList.username" ></li>
+    <li>年龄：<input type="text" name="username" id="username"></li>
+    <li>姓名：<input type="text" name="username" id="username"></li>
+    <button (click)="doSubmit()">提交</button>
+    {{peopleList | json}}
+</ul>

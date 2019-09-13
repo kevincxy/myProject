@@ -1,0 +1,15 @@
+h2{
+ text-align: center   
+}
+*{
+    margin: 0px ;
+    padding: 0px;
+}
+ul,ol{
+    list-style-type: none;
+}
+li{
+    width: 400px;
+    margin: 40px auto;
+    padding: 1px solid #000;
+}
