@@ -1,0 +1,23 @@
+
+<span > TodoList<input type="text" name="todolist" id="todolist" [(ngModel)]="todoValue"> <button (click)="addTodo()">添加</button> </span>
+<hr>
+<h2>代办事项</h2>
+<ul>
+    <li>
+        <span *ngFor="let item of todoList;let key= index" [hidden]="item.status==1" >
+            <input type="checkbox" [(ngModel)]="item.status" />{{item.title}}<button (click)="del(key)">X</button>
+            <br>
+        </span>
+    </li>
+</ul>   
+<!-- -->
+<h2>已完成事项</h2>
+<ul>
+    <li>
+        <span *ngFor="let item of todoList" [hidden]="item.status==0">
+            <input type="checkbox" [(ngModel)]="item.status" />{{item.title}}
+            <br>
+        </span>
+    </li>
+</ul>
+{{this.todoList | json}}

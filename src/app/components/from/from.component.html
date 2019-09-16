@@ -1,9 +1,31 @@
-<h2>人员登记系统</h2>
 
 <ul>
-    <li>姓名：<input type="text" name="username" id="username" [(ngModel)]="peopleList.username" ></li>
-    <li>年龄：<input type="text" name="username" id="username"></li>
-    <li>姓名：<input type="text" name="username" id="username"></li>
-    <button (click)="doSubmit()">提交</button>
-    {{peopleList | json}}
+    <h2>人员登记系统</h2>
+    <li>姓名：<input type="text" name="username" id="username" [(ngModel)]="peopleInfo.username" ></li>
+    <li>性别：
+        <input type="radio" name="gender" id="sex1" value="0" [(ngModel)]="peopleInfo.sex" ><label for="sex1">女</label>&nbsp;
+        <input type="radio" name="gender" id="sex2" value="1" [(ngModel)]="peopleInfo.sex"><label for="sex2">男</label>
+    </li>
+    <!-- <li>年龄：<input type="text" name="username" id="username"></li>
+    <li>姓名：<input type="text" name="username" id="username"></li> -->
+    <li>
+        城市：<select name="city" id="city" [(ngModel)]="peopleInfo.city">
+            <option [value]="item" *ngFor="let item of peopleInfo.cityList">{{item}}</option>
+        </select>
+    </li>
+    <li>
+        爱好：
+        <span *ngFor="let item of peopleInfo.hibits;let key=index;">
+            <input type="checkbox"  [(ngModel)]="item.checked" [id]="'hibit'+key">
+            <label [for]="'hibit'+key">{{item.title}}</label>
+            &nbsp;
+        </span>
+      
+    </li>
+    <li>
+            备注：<textarea name="remark" id="remark" [(ngModel)]="peopleInfo.remark" cols="30" rows="10"></textarea>
+    </li>
+    <li><button (click)="doSubmit()">提交数据</button></li>
+    <li> {{peopleInfo | json}}</li>
+   
 </ul>

@@ -8,6 +8,8 @@ import { HeaderComponent } from './components/header/header.component';
 import { HomeComponent } from './components/home/home.component';
 import {FormsModule} from '@angular/forms';
 import { FromComponent } from './components/from/from.component';
+import { SearchComponent } from './components/search/search.component';
+import { TodoListComponent } from './components/todo-list/todo-list.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +17,9 @@ import { FromComponent } from './components/from/from.component';
     NewsComponent,
     HeaderComponent,
     HomeComponent,
-    FromComponent
+    FromComponent,
+    SearchComponent,
+    TodoListComponent
   ],
   imports: [
     BrowserModule,

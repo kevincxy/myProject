@@ -1,0 +1,6 @@
+ul,ol{
+    list-style-type: none;
+}
+input{
+    margin: 10px;
+}
