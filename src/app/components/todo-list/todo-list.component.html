@@ -5,7 +5,7 @@
 <ul>
     <li>
         <span *ngFor="let item of todoList;let key= index" [hidden]="item.status==1" >
-            <input type="checkbox" [(ngModel)]="item.status" />{{item.title}}<button (click)="del(key)">X</button>
+            <input type="checkbox" [(ngModel)]="item.status" (change)="checkboxChange()" />{{item.title}}<button (click)="del(key)">X</button>
             <br>
         </span>
     </li>
@@ -21,3 +21,4 @@
     </li>
 </ul>
 {{this.todoList | json}}
+<br>
