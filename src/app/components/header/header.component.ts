@@ -11,5 +11,7 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit() {
   }
-
+  run(){
+    console.log("我是header的run方法");
+  }
 }

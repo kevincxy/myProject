@@ -14,6 +14,8 @@ import { TodoListComponent } from './components/todo-list/todo-list.component';
 import {FormsModule} from '@angular/forms';
 //引入一个服务
 import {StoreageService} from './services/storeage.service';
+import { SportComponent } from './components/sport/sport.component';
+import { TransitionComponent } from './components/transition/transition.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,9 @@ import {StoreageService} from './services/storeage.service';
     HomeComponent,
     FromComponent,
     SearchComponent,
-    TodoListComponent
+    TodoListComponent,
+    SportComponent,
+    TransitionComponent
   ],
   imports: [
     BrowserModule,
