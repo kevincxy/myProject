@@ -16,6 +16,8 @@ import {FormsModule} from '@angular/forms';
 import {StoreageService} from './services/storeage.service';
 import { SportComponent } from './components/sport/sport.component';
 import { TransitionComponent } from './components/transition/transition.component';
+import { PageComponent } from './components/page/page.component';
+import { LifecycleComponent } from './components/lifecycle/lifecycle.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,9 @@ import { TransitionComponent } from './components/transition/transition.componen
     SearchComponent,
     TodoListComponent,
     SportComponent,
-    TransitionComponent
+    TransitionComponent,
+    PageComponent,
+    LifecycleComponent
   ],
   imports: [
     BrowserModule,
