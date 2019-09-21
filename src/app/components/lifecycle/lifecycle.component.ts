@@ -9,6 +9,7 @@ export class LifecycleComponent implements OnInit {
   public msg:string="我是msg";
   public userInfo:string ="";
   public oldUserInfo:string ="";
+
   @Input("title") title:string;
   
   constructor() { 
@@ -52,8 +53,13 @@ export class LifecycleComponent implements OnInit {
     
     console.log("07每当 Angular 完成被投影组件内容的变更检测之后调用。ngAfterContentInit() 和每次 ngDoCheck() 之后调用");
   }
+  ngOnDestroy() {
+   console.log("08每当组件卸载时，触发！");
+    
+  }
   //自定义方法
   msgChange(){
     this.msg="改变后的值";
   }
+
 }

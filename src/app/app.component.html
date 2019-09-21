@@ -2,6 +2,6 @@
 <app-search></app-search> -->
 <!-- <app-sport></app-sport> -->
 <!-- <app-transition></app-transition> -->
-<app-lifecycle title="我是根组件的msg"></app-lifecycle>
-
+<app-lifecycle title="我是根组件的msg" *ngIf="flag"></app-lifecycle>
+<button (click)="changeFlag()">挂载/卸载</button>
 <router-outlet></router-outlet>
