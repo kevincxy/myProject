@@ -1,4 +1,10 @@
+<!--获取子组件数据-->
 <app-header #header  [title]="title" [check]="check" [page]="this" (outer)="check($event)"></app-header>
 <p>page works!</p>
 <button (click)="getChildMsg()">获取子组件msg</button>
 <button (click)="execChildRun()">执行子组件方法</button>
+
+<hr>
+
+<button (click)="getUsername()">同步调用</button>
+<button (click)="requestBack()">异步回调调用</button>

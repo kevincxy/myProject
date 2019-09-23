@@ -14,6 +14,8 @@ import { TodoListComponent } from './components/todo-list/todo-list.component';
 import {FormsModule} from '@angular/forms';
 //引入一个服务
 import {StoreageService} from './services/storeage.service';
+import { AsynchronousService } from './services/asynchronous.service';
+
 import { SportComponent } from './components/sport/sport.component';
 import { TransitionComponent } from './components/transition/transition.component';
 import { PageComponent } from './components/page/page.component';
@@ -39,7 +41,7 @@ import { LifecycleComponent } from './components/lifecycle/lifecycle.component';
     FormsModule
   ],
   //服务声明
-  providers: [StoreageService],
+  providers: [StoreageService,AsynchronousService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
