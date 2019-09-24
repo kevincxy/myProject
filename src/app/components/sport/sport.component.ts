@@ -1,4 +1,7 @@
 import { Component, OnInit,ViewChild } from '@angular/core';
+// import { HttpClient } from 'selenium-webdriver/http';
+import { HttpClient, HttpHandler,HttpHeaders } from '@angular/common/http';
+import { resource } from 'selenium-webdriver/http';
 
 @Component({
   selector: 'app-sport',
@@ -9,7 +12,8 @@ export class SportComponent implements OnInit {
   public flag:boolean = true;
   @ViewChild('mybox',{ static: true }) mybox:any;
   @ViewChild('header',{ static:true }) header:any;
-  constructor() { }
+  //引入httpClient
+  constructor(public http:HttpClient) { }
 
   ngOnInit() {
     //这里是组件和指令初始化完毕，并不是真正的dom加载完毕
@@ -35,7 +39,27 @@ export class SportComponent implements OnInit {
     console.log(this.mybox.nativeElement.innerHTML);
 
 
-
     this.header.run();
+
+  }
+  //rxjs
+  getData(){
+    var url:string="http://localhost:8081/TimeRecord/user/getUserById/1";
+    this.http.get(url).subscribe((response:any)=>{
+      console.log(response);
+    });
+  }
+
+  postData(){
+    const httpOptions = {headers:new HttpHeaders({'Content-Type':'application/json'})};
+    var url:string = "http://localhost:8081/TimeRecord/user/getUserByCondition";
+    var bodyParam ={
+      "pageNum":1,
+      "pageSize":5
+    };
+    
+    this.http.post(url,bodyParam, ).subscribe((response)=>{
+      console.log(response);
+    });
   }
 }

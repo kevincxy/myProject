@@ -12,9 +12,11 @@ import { SearchComponent } from './components/search/search.component';
 import { TodoListComponent } from './components/todo-list/todo-list.component';
 //如果使用双向数据绑定，需要引入form组件
 import {FormsModule} from '@angular/forms';
+import {HttpClientModule} from '@angular/common/http'
 //引入一个服务
 import {StoreageService} from './services/storeage.service';
 import { AsynchronousService } from './services/asynchronous.service';
+
 
 import { SportComponent } from './components/sport/sport.component';
 import { TransitionComponent } from './components/transition/transition.component';
@@ -38,7 +40,8 @@ import { LifecycleComponent } from './components/lifecycle/lifecycle.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   //服务声明
   providers: [StoreageService,AsynchronousService],

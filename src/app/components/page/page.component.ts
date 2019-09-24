@@ -1,6 +1,7 @@
 import { Component, OnInit,ViewChild } from '@angular/core';
 
 import { AsynchronousService } from '../../services/asynchronous.service';
+import { filter } from 'minimatch';
 
 @Component({
   selector: 'app-page',
@@ -50,10 +51,17 @@ public title:string= "首页组件title";
     // });
 
     //7.获取rxjs的inter
-    let numSer = this.request.getRxjsIntervalNum();
-     numSer.subscribe((data)=>{
-      console.log(data);
-    });
+    // var numSer = this.request.getRxjsIntervalNum();
+    //  numSer.pipe(
+    //    filter((val:number)=>{
+    //      if(val%2==0){
+    //        return val;
+    //      }
+    //     })
+    //  )
+    //  .subscribe((data:number)=>{
+    //   console.log(data);
+    // });
 
     
   }
