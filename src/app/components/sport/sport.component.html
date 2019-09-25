@@ -1,5 +1,5 @@
 <app-header #header></app-header>
-<p>sport works!</p>
+<!-- <p>sport works!</p> -->
 <div id="box">
     this is box!
 </div>
@@ -13,4 +13,11 @@
 <br>
 <button (click)="getData()">get方法</button>
 <button (click)="postData()">post方法</button>
+<button (click)="getJsonpData()">jsonp方法</button>
+<button (click)="getAxiosData()">引用第三方Axios发送请求</button>
+
+<h2>用户列表</h2>
+<ul>
+   <li *ngFor="let item of userList">{{item.username}}</li> 
+</ul>
 

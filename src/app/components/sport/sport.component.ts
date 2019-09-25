@@ -2,6 +2,8 @@ import { Component, OnInit,ViewChild } from '@angular/core';
 // import { HttpClient } from 'selenium-webdriver/http';
 import { HttpClient, HttpHandler,HttpHeaders } from '@angular/common/http';
 import { resource } from 'selenium-webdriver/http';
+// import  axios from 'axios';
+import { HttpserviceService} from '../../services/httpservice.service';
 
 @Component({
   selector: 'app-sport',
@@ -12,8 +14,9 @@ export class SportComponent implements OnInit {
   public flag:boolean = true;
   @ViewChild('mybox',{ static: true }) mybox:any;
   @ViewChild('header',{ static:true }) header:any;
+  public userList:any[]=[];
   //引入httpClient
-  constructor(public http:HttpClient) { }
+  constructor(public http:HttpClient,public httpService:HttpserviceService) { }
 
   ngOnInit() {
     //这里是组件和指令初始化完毕，并不是真正的dom加载完毕
@@ -32,8 +35,8 @@ export class SportComponent implements OnInit {
     let box1:any = document.getElementById("box1");
     box1.style.color ="blue";
 
-   this.mybox.nativeElement.style.width="100px";
-   this.mybox.nativeElement.style.height ="100px";
+   this.mybox.nativeElement.style.width="60px";
+   this.mybox.nativeElement.style.height ="60px";
 
     this.mybox.nativeElement.style.background = "red";
     console.log(this.mybox.nativeElement.innerHTML);
@@ -58,8 +61,24 @@ export class SportComponent implements OnInit {
       "pageSize":5
     };
     
-    this.http.post(url,bodyParam, ).subscribe((response)=>{
-      console.log(response);
+    this.http.post(url,bodyParam).subscribe((response:any)=>{
+      this.userList = response.result;
+      console.log(this.userList);
     });
   }
+  //通过jsonp获取服务器数据(跨域的一种解决方法)
+  getJsonpData(){
+    // alert("jsonp");
+    let url:string = "http://localhost:8081/TimeRecord/user/getUserById/1";
+    // this.http.jsonp(url,);
+    
+  }
+  getAxiosData(){
+    alert("axios")
+    let url:string = "http://localhost:8081/TimeRecord/user/getUserById/1";
+    this.httpService.axiosGet(url).then((data)=>{
+        console.log(data);
+    });
+  }
+  
 }
